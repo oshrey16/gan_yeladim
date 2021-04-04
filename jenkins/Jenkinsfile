@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'python manage.py startserver'
+                sh 'python manage.py runserver'
             }
         }
     }
