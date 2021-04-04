@@ -4,4 +4,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^homePage/', include('homePage.urls')),
     url(r'^ganenet/', admin.site.urls),
+    url(r'^parentsPage/', include('parentsPage.urls')),
+    url(r'^kidsPage/', include('kidsPage.urls')),
 ]
