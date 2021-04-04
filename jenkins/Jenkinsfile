@@ -1,9 +1,28 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent any
     stages {
-        stage('build') {
+         stage('Setup Python Virtual Environment'){
             steps {
-                sh 'pip install django'
+                sh '''
+                    chmod +x envsetup.sh
+                    ./envsetup.sh
+                    '''
+            }
+        }
+        stage('Setup gunicorn service'){
+            steps {
+                sh '''
+                    chmod +x gunicorn.sh
+                    ./gunicorn.sh
+                    '''
+            }
+        }
+        stage('Setup Nginx'){
+            steps {
+                sh '''
+                    chmod +x nginx.sh
+                    ./nginx.sh
+                    '''
             }
         }
     }
