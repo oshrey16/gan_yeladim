@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from django.contrib.auth import logout
+
 
 #def index(request):
  #   return HttpResponse("Hello. This is our home page! WELCOME!")
@@ -14,3 +16,5 @@ def login_success(request):
     elif request.user.is_superuser:
         return redirect("/ganenet")
 	
+def logout_view(request):
+    logout(request)	

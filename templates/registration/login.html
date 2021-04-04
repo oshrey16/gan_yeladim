@@ -4,4 +4,10 @@
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Log In</button>
+  <button type="button" onclick="myFunction()">forgot password?</button>
+	<script>
+	function myFunction() {
+	location.replace("http://127.0.0.1:8000/accounts/password_reset/")
+	}
+</script>
 </form>
