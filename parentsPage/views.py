@@ -3,5 +3,6 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, You're at the parentsPage index.")
+    #return HttpResponse("Hello, You're at the parentsPage index.")
+    return render(request,"parentsPage.html")
 
