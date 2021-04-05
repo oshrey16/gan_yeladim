@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('runserver'){
             steps{
-                sh 'echo python --version'
+                 sh 'python manage.py runserver'
             }
         }
     }
