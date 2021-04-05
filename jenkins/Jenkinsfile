@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('runserver'){
             steps{
-                sh 'virtualenv --python=python2.6 env'
+                sh 'python manage.py jenkins'
             }
         }
     }
