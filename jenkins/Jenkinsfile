@@ -5,10 +5,6 @@ pipeline {
          sh 'virtualenv --python=python2.6 env'
          sh 'env/bin/pip install -r requirements.txt'
         }
-        stage('runserver') {
-            steps {
-                sh 'python manage.py jenkins'
-            }
-        }
+
     }
 }
