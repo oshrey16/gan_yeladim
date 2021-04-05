@@ -1,6 +1,10 @@
 pipeline {
     agent { docker { image 'python:2.7.13' } }
     stages {
+        stage('install'){
+         sh 'virtualenv --python=python2.6 env'
+         sh 'env/bin/pip install -r requirements.txt'
+        }
         stage('runserver') {
             steps {
                 sh 'python manage.py jenkins'
