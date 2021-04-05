@@ -1,9 +1,17 @@
 pipeline {
-    agent { docker { image 'python:2.7.13' } }
-    stages {
-        stage('runserver'){
+    agent none
+    stages{
+        stage('Build'){
+            agent{
+                docker{
+                    image 'python:3.8'
+                }
+            }
             steps{
-                 sh 'python manage.py jenkins --enable-coverage'
+                withEnv(["HOME=${env.WORKSPACE}"}){
+                    sh 'python -m pip install -r django'
+                    sh 'python -m py_compile manage.py
+                }
             }
         }
     }
