@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'python:3.7' } }
+    agent { docker { image 'python:2.7.13' } }
     stages {
         stage('runserver'){
             steps{
-                sh 'python manage.py jenkins'
+                sh 'echo python --version'
             }
         }
     }
