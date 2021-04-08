@@ -12,4 +12,13 @@ class kid(models.Model):
 	parentName = models.CharField(max_length=200)
 	parentPhone = models.CharField(max_length=200)
 	parentEmail = models.CharField(max_length=200)
+	def __str__(self):
+		return self.id + ":" + self.firstName + " " + self.lastName
 	
+class subject(models.Model):
+	nameSubject = models.CharField(max_length=200, primary_key=True)
+	songs = models.CharField(max_length=2000)
+	selfTasks = models.CharField(max_length=2000)
+	submissions = models.FileField(upload_to='submissionsTasks')	
+	def __str__(self):
+		return self.nameSubject
