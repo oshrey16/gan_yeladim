@@ -1,0 +1,17 @@
+<html>
+<head>
+	{% for subject in subject_id %}
+    <title>{{ subject.nameSubject }}</title>
+</head>
+<body>
+	<h1>{{ subject.nameSubject }}</h1>
+    <h3>Songs:</h3>
+    <p> {{ subject.songs}}</p>
+	<h3>Games:</h3>
+    <p> {{ subject.selfTasks}}</p>
+	<h3>Submissions:</h3>{{ subject.submissions}}
+	 <a href download={{ subject.submissions}} >Download PDF</a>
+	{% endfor %}
+</body>
+
+</html>
