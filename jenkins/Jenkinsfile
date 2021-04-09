@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Compile'){
             steps{
-                withEnv(["HOME"]){
+                withEnv(["HOME=${env.WORKSPACE}"]){
                     sh 'python -m py_compile manage.py'
                 }
             }
