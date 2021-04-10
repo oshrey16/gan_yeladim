@@ -5,7 +5,6 @@ from homePage.models import subject
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-    #return HttpResponse("Hello, You're at the parentsPage index.")
     return render(request,"parentsPage.html")
 
 def submissionsParent(request):

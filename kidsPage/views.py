@@ -5,7 +5,6 @@ from homePage.models import subject
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-    #return HttpResponse("Hello, world. You're at the kidsPage.")
     return render(request,"kidsPage.html")
 	
 def contents(request, subject_id):
@@ -26,3 +25,4 @@ def download_file(request,fl_path):
 	response = HttpResponse(fl, content_type='application/pdf')
 	response['Content-Disposition'] = "attachment; filename=%s" % filename
 	return response	
+
