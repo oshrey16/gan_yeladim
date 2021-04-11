@@ -2,16 +2,19 @@
 
 from django.test import TestCase
 import datetime
-from homePage.models import kid
+from homePage.models import kid,subject
+from parentsPage.models import submission
 
 # Create your tests here.
 
 class KidTestCase(TestCase):
     def setUp(self):
+        #Create Kid
         kid.objects.create(id=123,firstName="Test",lastName="asd",
         birth_date=datetime.datetime(2020,1,1),favoriteColor="red",favoriteAnimal="Dog",
         siblingsNumber=2,parentName="Asdasd",
         parentPhone="0501111111",parentEmail="Test@gmail.com")
+
     
     def test_kid(self):
         kid1 = kid.objects.get(id=123)
