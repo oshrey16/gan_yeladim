@@ -15,6 +15,9 @@ class KidTestCase(TestCase):
         siblingsNumber=2,parentName="Asdasd",
         parentPhone="0501111111",parentEmail="Test@gmail.com")
 
+        #Create Subject
+        subject.objects.create(nameSubject="testSub",songs="songtest",selfTasks="testTasks")
+
     
     def test_kid(self):
         kid1 = kid.objects.get(id=123)
@@ -28,3 +31,13 @@ class KidTestCase(TestCase):
         self.assertEqual(kid1.parentName,"Asdasd")
         self.assertEqual(kid1.parentPhone,"0501111111")
         self.assertEqual(kid1.parentEmail,"Test@gmail.com")
+    
+    def test_subject(self):
+        sub1 = subject.objects.get(nameSubject="testSub")
+        self.assertEqual(sub1.songs,"songtest")
+        self.assertEqual(sub1.selfTasks,"testTasks")
+
+    def test_postSubmission(self):
+        kid1 = kid.objects.get(id=123)
+        sub1 = subject.objects.get(nameSubject="testSub")
+        sub = submission.objects.create(kidId=kid1,subjectName=sub1)
