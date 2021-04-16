@@ -36,6 +36,6 @@ class Choice(models.Model):
         return self.choice_text
 
 class Meeting(models.Model):
-    Meeting_text = models.CharField(max_length=300)
+    Meeting_text = models.CharField(max_length=2000)
     def __str__(self):
         return self.Meeting_text
