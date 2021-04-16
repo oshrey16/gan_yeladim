@@ -34,3 +34,8 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)	
     def __str__(self):
         return self.choice_text
+
+class Meeting(models.Model):
+    Meeting_text = models.CharField(max_length=300)
+    def __str__(self):
+        return self.Meeting_text
