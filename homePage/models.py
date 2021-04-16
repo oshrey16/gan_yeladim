@@ -36,6 +36,8 @@ class Choice(models.Model):
         return self.choice_text
 
 class Meeting(models.Model):
-    Meeting_text = models.CharField(max_length=2000)
+    Meeting_Link = models.CharField(max_length=2000)
+    date = models.CharField(max_length=200)
     def __str__(self):
-        return self.Meeting_text
+        return self.Meeting_Link + "," + self.date 
+
