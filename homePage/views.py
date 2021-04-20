@@ -2,12 +2,6 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth import logout
 
-
-#def index(request):
- #   return HttpResponse("Hello. This is our home page! WELCOME!")
-	
-
-
 def login_success(request):
     if request.user.groups.filter(name="Parents").exists():
         return redirect("parentsPage")
@@ -18,3 +12,4 @@ def login_success(request):
 	
 def logout_view(request):
     logout(request)	
+	
