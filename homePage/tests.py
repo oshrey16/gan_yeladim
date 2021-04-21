@@ -2,7 +2,7 @@
 
 from django.test import TestCase
 import datetime
-from homePage.models import kid,subject
+from homePage.models import kid,subject,News
 from parentsPage.models import submission
 
 # Create your tests here.
@@ -18,6 +18,8 @@ class KidTestCase(TestCase):
         #Create Subject
         subject.objects.create(nameSubject="testSub",songs="songtest",selfTasks="testTasks")
 
+        #Create News
+        News.objects.create("TestNews","TestTestTest")
     
     def test_kid(self):
         kid1 = kid.objects.get(id=123)
@@ -41,3 +43,6 @@ class KidTestCase(TestCase):
         kid1 = kid.objects.get(id=123)
         sub1 = subject.objects.get(nameSubject="testSub")
         sub = submission.objects.create(kidId=kid1,subjectName=sub1)
+    
+    def test_News(self):
+        test1 = subject.objects.get()
