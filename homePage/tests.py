@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-
 from django.test import TestCase
 import datetime
-from homePage.models import kid,subject
+from homePage.models import kid,subject,News
 from parentsPage.models import submission
 
 # Create your tests here.
@@ -18,6 +17,8 @@ class KidTestCase(TestCase):
         #Create Subject
         subject.objects.create(nameSubject="testSub",songs="songtest",selfTasks="testTasks")
 
+        #Create News
+        News.objects.create(titel="TestNews",content="TestTestTest")
     
     def test_kid(self):
         kid1 = kid.objects.get(id=123)
@@ -41,3 +42,14 @@ class KidTestCase(TestCase):
         kid1 = kid.objects.get(id=123)
         sub1 = subject.objects.get(nameSubject="testSub")
         sub = submission.objects.create(kidId=kid1,subjectName=sub1)
+    
+    def test_News(self):
+        for x in News.objects.all():
+            if(x.titel=="TestNews"):
+                self.assertEqual(x.titel,"TestNews")
+                self.assertEqual(x.content,"TestTestTest")
+                date = datetime.datetime(1900,1,1)
+                #x.ticket_date = date
+                self.assertNotEqual(x.ticket_date.replace(microsecond=0),date)
+            else:
+                self.assertNotContains()
