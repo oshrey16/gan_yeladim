@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from homePage.models import subject
@@ -9,8 +9,11 @@ def index(request):
 	
 def contents(request, subject_id):
 	data = subject.objects.all()
+	print (str(data).lower())
+	if (("subject: "+ subject_id) not in (str(data)).lower()):
+		raise Http404("Subject does not exist")
 	sub = {
-    "subject_id": data
+	"subject_id": data
 	}
 	return render(request,"subject.html", sub)
 	
