@@ -53,4 +53,4 @@ class News(models.Model):
 	content = models.TextField()
 	ticket_date = models.DateTimeField(auto_now_add=True,auto_created=True)
 	def __str__(self):
-		return self.ticket_id + "-" + self.titel
+		return str(self.ticket_id) + "-" + self.titel

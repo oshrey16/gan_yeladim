@@ -33,5 +33,3 @@ def download_file(request,fl_path):
 	response['Content-Disposition'] = "attachment; filename=%s" % filename
 	return response	
 
-def Meetings(request):
-    return render(request, "Meetings.html")
