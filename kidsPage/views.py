@@ -1,15 +1,19 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from homePage.models import subject
+from homePage.models import subject, Meeting
 
 @login_required(login_url='/accounts/login/')
 def index(request):
     return render(request,"kidsPage.html")
 	
+def meetings(request,Meeting_id):
+	meetings_list = Meeting.objects.order_by('-id')[:20]
+	context = {'meetings_list': meetings_list}
+	return render(request, "Meetings.html", context)
+	
 def contents(request, subject_id):
 	data = subject.objects.all()
-	print (str(data).lower())
 	if (("subject: "+ subject_id) not in (str(data)).lower()):
 		raise Http404("Subject does not exist")
 	sub = {

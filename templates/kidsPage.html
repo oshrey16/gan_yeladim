@@ -4,21 +4,30 @@
 </head>
 <body>
     <h1>Kid Page</h1>
-    <p></p>
+	<p></p>
+	<p></p>
+	<button type="button" onclick="Mettings()">Mettings</button>
+	<script>
+	function Mettings() {
+	location.replace("http://127.0.0.1:8000/kidsPage/Meetings/")
+	}
+</script>
+
+	<p></p>
+	<button type="button" onclick="Subject()">Subject</button>
+	<script>
+	function Subject() {
+	location.replace("http://127.0.0.1:8000/kidsPage/passover/")
+	}
+</script>
+
+	<p></p>
 	<button type="button" onclick="myFunction()">logout</button>
 	<script>
 	function myFunction() {
 	location.replace("http://127.0.0.1:8000/accounts/login/")
 	}
 </script>
-<p></p>
-	<button type="button" onclick="Meetings()">Meetings</button>
-	<script>
-	function myFunction() {
-	location.replace("http://127.0.0.1:8000/kidsPage/Meetings/")
-	}
-</script>
 
 </body>
-
 </html>

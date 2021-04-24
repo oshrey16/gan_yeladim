@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='kidsPage'),
+	url(r'^(Meetings)/$', views.meetings, name='meetings'),
 	url(r'^(?P<subject_id>[a-zA-Z]+)/$', views.contents, name='contents'),
 	url(r'^(?P<fl_path>[a-zA-Z]+)/', views.download_file),
 ]
