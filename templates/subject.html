@@ -6,9 +6,9 @@
 <body>
 	<h1>{{ subject.nameSubject }}</h1>
     <h3>Songs:</h3>
-    <p> {{ subject.songs}}</p>
+    <a href= {{subject.songs}}>Click Me!</a>
 	<h3>Games:</h3>
-    <p> {{ subject.selfTasks}}</p>
+    <a href= {{subject.selfTasks}}>Click Me!</a>
 	<h3>Submissions:</h3>{{ subject.submissions}}
 	 <a href download={{ subject.submissions}} >Download PDF</a>
 	{% endfor %}

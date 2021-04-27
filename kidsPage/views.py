@@ -14,8 +14,6 @@ def meetings(request,Meeting_id):
 	
 def contents(request, subject_id):
 	data = subject.objects.all()
-	if (("subject: "+ subject_id) not in (str(data)).lower()):
-		raise Http404("Subject does not exist")
 	sub = {
 	"subject_id": data
 	}
@@ -26,7 +24,11 @@ def download_file(request,fl_path):
 	sub = {
     "subject_id": data
 	}
-	fl_path = data.values('submissions')[0]['submissions']
+	subind = -1
+	for index, item in enumerate(sub['subject_id']):
+		if (str(item).lower()==fl_path):
+			subind=index
+	fl_path = data.values('submissions')[subind]['submissions']
 	filename = fl_path.split('/')[1]
 	fl = open(fl_path, 'r')
 	response = HttpResponse(fl, content_type='application/pdf')
