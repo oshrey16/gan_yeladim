@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='News',
             fields=[
                 ('ticket_id', models.AutoField(primary_key=True, serialize=False)),
-                ('titel', models.CharField(max_length=200)),
+                ('title', models.CharField(max_length=200)),
                 ('content', models.TextField()),
                 ('ticket_date', models.DateTimeField(auto_now_add=True)),
             ],

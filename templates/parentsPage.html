@@ -13,7 +13,7 @@
     function polls() {
     location.replace("http://127.0.0.1:8000/parentsPage/polls")
     }
-</script>
+    </script>
     <p></p>
 	
 
@@ -22,7 +22,7 @@
     function mysubmissions() {
     location.replace("http://127.0.0.1:8000/parentsPage/upload_file")
     }
-</script>
+    </script>
 
     <p></p>
 
@@ -31,10 +31,27 @@
 	function myFunction() {
 	location.replace("http://127.0.0.1:8000/accounts/login/")
 	}
-    
+    </script>
 
+    <br><br>
+    <table>
+    <tr>
+        <th>News-Design required</th>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <th>content</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        {% for q in news %}
+        <td>{{q.title}}</td>
+        <td>{{q.content}}</td>
+        <td>{{q.ticket_date}}</td>
+        {% endfor %}
+    </tr>
+    </table>
 
-</script>
 </body>
 
 </html>

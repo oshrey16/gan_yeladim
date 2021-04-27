@@ -4,11 +4,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import subForm
 from django.urls import reverse
 from parentsPage.models import submission
-from homePage.models import Question, Choice
+from homePage.models import Question, Choice , News
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-    return render(request,"parentsPage.html")
+    news = News.objects.all()
+    con = {'news':news}
+    return render(request,"parentsPage.html",con)
 
 def submissionsParent(request):
     return render(request,"submissionsParent.html")
