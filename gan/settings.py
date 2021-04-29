@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+	'ganenetPage.apps.GanenetpageConfig',
 	'homePage.apps.HomepageConfig',
 	'parentsPage.apps.ParentspageConfig',
     'django.contrib.admin',
