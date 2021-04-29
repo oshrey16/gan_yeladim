@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
+<<<<<<< HEAD
 class myInfo(models.Model):
     firstName = models.CharField(max_length=200)
     lastName = models.CharField(max_length=200)
@@ -12,3 +13,5 @@ class myInfo(models.Model):
     birthDate = models.CharField(max_length=200)
     def __str__(self):
         return "My Information"
+=======
+>>>>>>> 7f0f88e5a2987c88a1def2a3ee5a1340d523cb8a
