@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.test import TestCase
 import datetime
-from homePage.models import kid,subject,News
+from homePage.models import kid,subject,News, Question, Choice
 from parentsPage.models import submission
 
 # Create your tests here.
@@ -19,6 +19,13 @@ class KidTestCase(TestCase):
 
         #Create News
         News.objects.create(title="TestNews",content="TestTestTest")
+		
+		#Create Question
+        Question.objects.create(question_text="TEST")
+		
+		#Create Choice
+        Choice.objects.create(question=Question.objects.create(question_text="TEST"), choice_text="TEST1",votes=1)
+		
     
     def test_kid(self):
         kid1 = kid.objects.get(id=123)
@@ -53,3 +60,8 @@ class KidTestCase(TestCase):
                 self.assertNotEqual(x.ticket_date.replace(microsecond=0),date)
             else:
                 self.assertNotContains()
+	def test_Question_Choices(self):
+		q = Question.objects.get(question_text="TEST")
+		c = Choice.objects.get(question="TEST")
+        self.assertEqual(c.votes,1)
+        self.assertEqual(c.choice_text,"TEST1")			
