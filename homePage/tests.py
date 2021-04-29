@@ -21,7 +21,7 @@ class KidTestCase(TestCase):
         News.objects.create(title="TestNews",content="TestTestTest")
 		
 		#Create Question
-        Question.objects.create(question_text="TEST")
+        #Question.objects.create(question_text="TEST")
 		
 		#Create Choice
         Choice.objects.create(question=Question.objects.create(question_text="TEST"), choice_text="TEST1",votes=1)
@@ -60,8 +60,10 @@ class KidTestCase(TestCase):
                 self.assertNotEqual(x.ticket_date.replace(microsecond=0),date)
             else:
                 self.assertNotContains()
-	def test_Question_Choices(self):
-		q = Question.objects.get(question_text="TEST")
-		c = Choice.objects.get(question="TEST")
-        self.assertEqual(c.votes,1)
-        self.assertEqual(c.choice_text,"TEST1")			
+    def test_Question_Choices(self):
+        for x in Question.objects.all():
+            if(x.question_text=="TEST"):
+                for c in Choice.objects.all():
+                    if(c.question == x):
+                        self.assertEqual(c.votes,1)
+                        self.assertEqual(c.choice_text,"TEST1")
