@@ -131,3 +131,13 @@ JENKINS_TASKS = (
     'django_jenkins.tasks.run_sloccount'
     'django_jenkins.runner.CITestSuiteRunner'
 )
+
+STATICFILES_DIRS=(
+    os.path.join(BASE_DIR,'css'),
+)
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+
+]
