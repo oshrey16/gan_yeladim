@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_jenkins',
     #remove livereload in finish
-    'livereload',
+    #'livereload',
 ]
 
 MIDDLEWARE = [
