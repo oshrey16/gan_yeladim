@@ -1,59 +1,43 @@
-{% load static %}
+{% extends  "base.html" %}
 <html>
 <head>
     <title>parent</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 
-<body>
-    <h1>Parent Page</h1>
+{% block pad-1 %}
+    <h2>דף הורים</h2>
 	<p></p>
 	
-
-	<button type="button" onclick="polls()">Polls</button>
+    <a href="#" onclick="polls()" class="myButton">סקרים</a>
     <script>
     function polls() {
     location.replace("http://127.0.0.1:8000/parentsPage/polls")
     }
     </script>
-    <p></p>
 	
-
-	<button type="button" onclick="mysubmissions()">Submit a task</button>
+    <a href="#" onclick="mysubmissions()" class="myButton">העלה עבודה</a>
     <script>
     function mysubmissions() {
     location.replace("http://127.0.0.1:8000/parentsPage/upload_file")
     }
     </script>
-
-    <p></p>
-
-	<button type="button" onclick="myFunction()">logout</button>
+    
+    <a href="#" onclick="news()" class="myButton">חדשות</a>
 	<script>
-	function myFunction() {
+	function news() {
+	location.replace("http://127.0.0.1:8000/parentsPage/news/")
+	}
+    </script>
+
+    <a href="#" onclick="logout()" class="myButton">התנתק</a>
+	<script>
+	function logout() {
 	location.replace("http://127.0.0.1:8000/accounts/login/")
 	}
     </script>
 
-    <br><br>
-    <table>
-    <tr>
-        <th>News-Design required</th>
-    </tr>
-    <tr>
-        <th>Title</th>
-        <th>content</th>
-        <th>Date</th>
-    </tr>
-    <tr>
-        {% for q in news %}
-        <td>{{q.title}}</td>
-        <td>{{q.content}}</td>
-        <td>{{q.ticket_date}}</td>
-        {% endfor %}
-    </tr>
-    </table>
+    
 
-</body>
+{% endblock pad-1 %}%>
 
 </html>

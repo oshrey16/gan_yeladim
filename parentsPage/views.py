@@ -8,9 +8,7 @@ from homePage.models import Question, Choice , News
 
 @login_required(login_url='/accounts/login/')
 def index(request):
-    news = News.objects.all()
-    con = {'news':news}
-    return render(request,"parentsPage.html",con)
+    return render(request,"parentsPage.html")
 
 def submissionsParent(request):
     return render(request,"submissionsParent.html")
@@ -52,5 +50,11 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
-        return HttpResponseRedirect(reverse('results', args=(question.id,)))	
+        return HttpResponseRedirect(reverse('results', args=(question.id,)))
+    
+def news(requset):
+    news = News.objects.all()
+    con = {'news':news}
+    return render(requset,"news.html",con)
+
 	

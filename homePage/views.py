@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth import logout
+from django.views.decorators.cache import never_cache
 
+@never_cache
 def login_success(request):
     if request.user.groups.filter(name="Parents").exists():
         return redirect("parentsPage")

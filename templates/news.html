@@ -1,0 +1,24 @@
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
+    <table class="blueTable">
+    <thead>
+    <tr>
+        <th>חדשות</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        {% for q in news %}
+        <td>
+        {{q.title}}
+        <br>
+        {{q.content}}
+        <br>
+        {{q.ticket_date}}
+        </td>
+        {% endfor %}
+    </tr>
+    </table>
+{% endblock pad-1 %}

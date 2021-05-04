@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_jenkins',
+    #remove livereload in finish
+    'livereload',
 ]
 
 MIDDLEWARE = [
@@ -133,11 +135,10 @@ JENKINS_TASKS = (
 )
 
 STATICFILES_DIRS=(
-    os.path.join(BASE_DIR,'css'),
+    os.path.join(BASE_DIR,'static'),
 )
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-
 ]
