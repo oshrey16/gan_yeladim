@@ -9,6 +9,7 @@ urlpatterns = [
 	url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^parentsPage/', include('parentsPage.urls')),
     url(r'^kidsPage/', include('kidsPage.urls')),
+    url(r'^ganenetPage/', include('ganenetPage.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

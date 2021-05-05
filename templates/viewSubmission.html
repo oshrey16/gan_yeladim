@@ -1,0 +1,18 @@
+<h1> Subjects </h1>
+<br>
+{% if Subjects %}
+    <ul>
+
+    {% for subject in Subjects %}
+        <h3>subject name:</h3>
+        <a href="{% url 'view submission' subjectName=subject.nameSubject %}">{{subject.nameSubject}}</a>
+		<p> _______________________________________________________________________________________</p>
+		<br>
+    {% endfor %} 
+    </ul>
+{% else %}
+    <p>No submissions are available.</p>
+{% endif %}
+
+</html>
+

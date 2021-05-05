@@ -1,0 +1,20 @@
+<h1> Submissions </h1>
+<br>
+ {% if submissions %}
+    <ul>
+
+    {% for submission in submissions %}
+        <h3>Kid's id:</h3>
+		<p> {{ submission.kidId }}</p>
+        <h3>Submission:</h3>
+		<p><a href="{{ file }}" download>{{ submission.submissions }}</a></p>
+		<p> _______________________________________________________________________________________</p>
+
+		<br>
+    {% endfor %} 
+    </ul>
+{% else %}
+    <p>No submissions are available.</p>
+{% endif %}
+ 
+</html>

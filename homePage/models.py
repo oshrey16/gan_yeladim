@@ -23,11 +23,7 @@ class subject(models.Model):
 	def __str__(self):
 		return self.nameSubject
 
-class Submission(models.Model):
-	nameSubmission= models.CharField(max_length=200, primary_key=True)
-	
-	def __str__(self):
-		return self.nameSubmission
+
 # ================ #
 # model Survey
 # ================ #

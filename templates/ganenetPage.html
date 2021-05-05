@@ -1,0 +1,51 @@
+
+<html>
+    <head>
+        <title>ganenet</title>
+    </head>
+    <body>
+        <h1>ganenet Page</h1>
+        <p></p>
+        <p></p>
+
+        <button type="button" onclick="viewSubmissions()">Subjects</button>
+        <script>
+        function viewSubmissions() {
+        location.replace("http://127.0.0.1:8000/ganenetPage/viewSubmission/")
+
+        
+        }
+    </script>
+    </body>
+    </html>
+
+<!-- {% extends  "base.html" %}
+<html>
+<head>
+    <title>ganenet</title>
+</head>
+
+{% block pad-1 %}
+    <h2>דף גננת</h2>
+	<p></p>
+	
+    <a href="#" onclick="submissions()" class="myButton">צפייה בהגשות</a>
+    <script>
+    function submissionView() {
+    location.replace("http://127.0.0.1:8000/ganenetPage/viewSubmission")
+    }
+    </script>
+	
+   
+    <a href="#" onclick="logout()" class="myButton">התנתק</a>
+	<script>
+	function logout() {
+	location.replace("http://127.0.0.1:8000/accounts/login/")
+	}
+    </script>
+
+    
+
+{% endblock pad-1 %}%>
+
+</html> -->
