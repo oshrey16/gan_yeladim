@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.test import TestCase
 import datetime
-from homePage.models import kid,subject,News, Question, Choice, Meeting
+from homePage.models import kid,subject,News, Question, Choice, Meeting 
 from parentsPage.models import submission
-
+from ganenetPage.models import myInfo
 # Create your tests here.
 
 class KidTestCase(TestCase):
@@ -14,6 +14,10 @@ class KidTestCase(TestCase):
         siblingsNumber=2,parentName="Asdasd",
         parentPhone="0501111111",parentEmail="Test@gmail.com")
 
+        #Create ganenet
+        myInfo.objects.create(id=234,firstName="Testt",lastName="aasd",phoneNumber="0509554882",
+        address="Asdasd",birthDate=datetime.datetime(2020,1,1))
+    
         #Create Subject
         subject.objects.create(nameSubject="testSub",songs="songtest",selfTasks="testTasks")
 
@@ -75,3 +79,15 @@ class KidTestCase(TestCase):
     def test_Meeting(self):
         meet1 = Meeting.objects.get(Meeting_Link="test")
         self.assertEqual(meet1.date,"test1")
+
+
+    def test_GanenetUpdate(self):
+        gannenet1 = myInfo.objects.get(id=234)
+        self.assertEqual(gannenet1.firstName,"Testt")
+        self.assertEqual(gannenet1.lastName,"aasd")
+        self.assertEqual(gannenet1.phoneNumber,"0509554882")
+        self.assertEqual(gannenet1.address,"Asdasd")
+        date = datetime.datetime(2020,1,1)
+        self.assertTrue(gannenet1.birthDate.replace(microsecond=0),date)
+
+    
