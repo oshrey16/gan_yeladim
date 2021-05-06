@@ -1,0 +1,22 @@
+<html>
+<head>
+</head>
+<h1>Review</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<td>enter kid id + subjectName:</td>
+    <p></p>
+    <textarea name="comment" id="comment" cols="30" rows="1"></textarea>
+    </tr><tr>
+        <p></p>
+<td>write your review:</td>
+<p></p>
+<textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+</tr><tr>
+
+    <div class="form-actions">
+      <button id="send" type="submit">submit!</button>
+    </div>
+</form>
+</body>
+</html>

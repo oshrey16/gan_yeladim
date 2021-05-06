@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from homePage.models import kid,subject
 from django.db import models
+from parentsPage.models import submission
 
 # Create your models here.
 class myInfo(models.Model):
@@ -12,3 +13,16 @@ class myInfo(models.Model):
     birthDate = models.CharField(max_length=200)
     def __str__(self):
         return "My Information"
+
+class Review(models.Model):
+    review= models.TextField(max_length=1000)   
+    submission_id=models.CharField(default=0,max_length=50)
+
+    def __str__(self):
+        return self.review
+
+# class Save(models.Model):
+#     review = models.ForeignKey(Review, on_delete=models.CASCADE)
+#     result_text = models.TextField (review)
+#     def __str__(self):
+#         return self.result_text

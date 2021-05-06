@@ -8,8 +8,25 @@
 		<p> {{ submission.kidId }}</p>
         <h3>Submission:</h3>
 		<p><a href="{{ file }}" download>{{ submission.submissions }}</a></p>
-		<p> _______________________________________________________________________________________</p>
+        <button type="button" onclick="myReview()">Review</button>
+        <script>
+        function myReview() {
+        location.replace("http://127.0.0.1:8000/ganenetPage/reviewGanenet")
+    } </script>
 
+        <!-- <div class="card">
+            <h3 class="text-center">Review</h3>
+            
+
+            </form> </div>-->
+        
+        <!-- <button type="button" onclick="myReviews()">Review</button>
+    <script>
+    function myReviews() {
+    location.replace("http://127.0.0.1:8000/review")
+    }
+		<p> _______________________________________________________________________________________</p>
+</script> -->
 		<br>
     {% endfor %} 
     </ul>
