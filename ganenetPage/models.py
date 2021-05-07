@@ -10,7 +10,7 @@ class myInfo(models.Model):
     lastName = models.CharField(max_length=200)
     phoneNumber = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
-    birthDate = models.CharField(max_length=200)
+    birthDate = models.DateTimeField('birthday')
     def __str__(self):
         return "My Information"
 
