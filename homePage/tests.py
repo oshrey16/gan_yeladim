@@ -81,7 +81,7 @@ class KidTestCase(TestCase):
         self.assertEqual(meet1.date,"test1")
 
 
-    def test_GanenetUpdate(self):
+    def test_Ganenet(self):
         gannenet1 = myInfo.objects.get(id=234)
         self.assertEqual(gannenet1.firstName,"Testt")
         self.assertEqual(gannenet1.lastName,"aasd")
@@ -89,5 +89,18 @@ class KidTestCase(TestCase):
         self.assertEqual(gannenet1.address,"Asdasd")
         date = datetime.datetime(2020,1,1)
         self.assertTrue(gannenet1.birthDate.replace(microsecond=0),date)
+    
+    def test_GanenetUpdate(self):
+        ganenet1 = myInfo.objects.get(id=234)
+        ganenet1.firstName = "NewFirstName"
+        ganenet1.lastName = "NewLastname"
+        ganenet1.phoneNumber = "0501111111"
+        ganenet1.address = "NewAddress"
+        ganenet1.birthDate = datetime.date(1900,12,12)
+        self.assertEqual(ganenet1.firstName,"NewFirstName")
+        self.assertEqual(ganenet1.lastName,"NewLastname")
+        self.assertEqual(ganenet1.phoneNumber,"0501111111")
+        self.assertEqual(ganenet1.address,"NewAddress")
+        self.assertTrue(ganenet1.birthDate,datetime.date(1900,12,12))
 
     
