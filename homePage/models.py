@@ -56,3 +56,14 @@ class News(models.Model):
 	ticket_date = models.DateTimeField(auto_now_add=True,auto_created=True)
 	def __str__(self):
 		return str(self.ticket_id) + "-" + self.title
+		
+		
+class reportBug (models.Model):
+    firstName = models.CharField(max_length=50)
+    lastName = models.CharField(max_length=50)
+    emailAddress = models.CharField(max_length=100)
+    phoneNumber = models.CharField(max_length=15)
+    subject = models.CharField(max_length=500)
+    message = models.CharField(max_length=5000,blank=True)
+    def __str__(self):
+        return self.subject		

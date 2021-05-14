@@ -1,0 +1,42 @@
+<html dir="rtl">
+<head>
+</head>
+<h1>דווח על תקלה</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<td>שם פרטי:	*</td>
+    <td><input type="text" name="firstName" required /></td>
+</tr><tr>
+<br />
+<br />
+<td>שם משפחה:	*</td>
+    <td><input type="text" name="lastName" required /></td>
+</tr><tr>
+<br />
+<br />
+<td>כתובת מייל:	*</td>
+    <td><input type="email" name="emailAddress" required /></td>
+</tr><tr>
+<br />
+<br />
+<td>טלפון:	*</td>
+    <td><input type="text" pattern="\d*" name="phoneNumber" required /></td>
+</tr><tr>
+<br />
+<br />
+<td>נושא:	*</td>
+    <td><input type="text" name="subject" required /></td>
+</tr><tr>
+<br />
+<br />
+<td>תיאור התקלה:</td>
+    <td><textarea  name="message" rows="10"/></textarea></td> 
+</tr><tr>
+<br />
+    <div class="form-actions">
+      <button id="send" type="submit" onclick="showPage()">שלח</button>
+	  <button type="reset" value="Reset">נקה טופס</button>
+    </div>
+</form>
+</body>
+</html>

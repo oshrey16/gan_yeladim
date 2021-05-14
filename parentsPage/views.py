@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import subForm
+from .forms import subForm, ContactForm
 from django.urls import reverse
 from parentsPage.models import submission
-from homePage.models import Question, Choice , News
+from homePage.models import Question, Choice , News, reportBug
+from django.core.mail import send_mail, BadHeaderError, EmailMessage
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -56,5 +58,39 @@ def news(requset):
     news = News.objects.all()
     con = {'news':news}
     return render(requset,"news.html",con)
+	
+def reportBugView(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST, request.FILES)
+        if form.is_valid():
+            firstName = form.cleaned_data['firstName']
+            lastName = form.cleaned_data['lastName']
+            emailAddress = form.cleaned_data['emailAddress']
+            phoneNumber = form.cleaned_data['phoneNumber']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            try:
+                new_mail=form.save()
+                msgToHost = EmailMessage(
+                    u"פנייה חדשה : "+firstName+" "+lastName,
+                    subject+"\n\n"+message+"\n\n==================================\n"+emailAddress+u"   פרטים ליצירת קשר: "+phoneNumber,
+                    emailAddress,
+                    ['balagandevelopers@gmail.com'],
+                )
+                msgToSender = EmailMessage(
+                     u"פנייתך בנושא : "+subject+u" נשלחה בהצלחה ",
+                     u"נציג מטעמינו יצור עמך קשר בהקדם. ",
+                    emailAddress,
+                   [emailAddress],
+                )
+                msgToHost.send()
+                msgToSender.send()
+
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "bug.html", {'form': form})	
 
 	

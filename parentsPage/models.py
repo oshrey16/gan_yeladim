@@ -9,3 +9,4 @@ class submission(models.Model):
 
 	def __str__(self):
 		return self.kidId.id + self.subjectName.nameSubject
+		
