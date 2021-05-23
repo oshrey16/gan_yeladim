@@ -10,7 +10,7 @@
 	<h3>Games:</h3>
     <a href= {{subject.selfTasks}}>Click Me!</a>
 	<h3>Submissions:</h3>{{ subject.submissions}}
-	 <a href download={{ subject.submissions}} >Download PDF</a>
+	 <a href={{ subject.submissions.url }} download = {{ subject.nameSubject}} >Download PDF</a>
 	{% endfor %}
 </body>
 
