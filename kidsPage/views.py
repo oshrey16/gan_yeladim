@@ -1,7 +1,7 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from homePage.models import subject, Meeting
+from homePage.models import mashov, subject, Meeting
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -14,8 +14,10 @@ def meetings(request,Meeting_id):
 	
 def contents(request, subject_id):
 	data = subject.objects.all()
+	data_mashov = mashov.objects.all()
 	sub = {
-	"subject_id": data
+	"subject_id": data,
+	"mashov": data_mashov
 	}
 	return render(request,"subject.html", sub)
 	

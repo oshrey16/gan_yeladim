@@ -66,4 +66,11 @@ class reportBug (models.Model):
     subject = models.CharField(max_length=500)
     message = models.CharField(max_length=5000,blank=True)
     def __str__(self):
-        return self.subject		
+        return self.subject
+
+class mashov (models.Model):
+	subject = models.ForeignKey(subject,on_delete=models.CASCADE)
+	kid = models.ForeignKey(kid,on_delete=models.CASCADE)
+	feedback = models.IntegerField(default=-1)
+	def __str__(self):
+		return self.feedback
