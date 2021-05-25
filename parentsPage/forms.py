@@ -2,6 +2,9 @@ from django import forms
 from django.forms import ModelForm
 from parentsPage.models import submission
 from homePage.models import reportBug
+from homePage.models import Message
+
+
 
 class subForm(ModelForm):
     submissions = forms.FileField
@@ -12,4 +15,11 @@ class subForm(ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = reportBug
-        fields = ['firstName', 'lastName','emailAddress','phoneNumber','subject','message']		
+        fields = ['firstName', 'lastName','emailAddress','phoneNumber','subject','message']	
+
+class MessageForm(forms.ModelForm):
+    class Meta:
+        model = Message
+        fields = ['firstName', 'lastName','emailAddress','phoneNumber','subject','message']	
+
+
