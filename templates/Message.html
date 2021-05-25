@@ -1,6 +1,7 @@
 <html dir="rtl">
 <head>
 </head>
+<<<<<<< HEAD
 <h1>הודעה לגננת</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -21,6 +22,13 @@
 <br />
 <td>טלפון:	*</td>
     <td><input type="text" pattern="\d*" name="phoneNumber" required /></td>
+=======
+<h1>הודעה חדשה</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<td>נמען:	*</td>
+    <td><input type="text" name="parentName" required /></td>
+>>>>>>> af20a0a2753f0589dc993a9415b3cbdaa179fad2
 </tr><tr>
 <br />
 <br />
@@ -29,7 +37,12 @@
 </tr><tr>
 <br />
 <br />
+<<<<<<< HEAD
 <td> תוכן ההודעה:</td>
+=======
+<td>תוכן ההודעה:</td>
+<br />
+>>>>>>> af20a0a2753f0589dc993a9415b3cbdaa179fad2
     <td><textarea  name="message" rows="10"/></textarea></td> 
 </tr><tr>
 <br />
