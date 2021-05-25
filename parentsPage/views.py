@@ -30,6 +30,9 @@ def subView(request):
 
 def successView(request):
     return render(request, "success.html")
+
+def Message(request):
+    return render(request, "Message.html")
 	
 def detail(request, question_id):
     latest_question_list = Question.objects.order_by('-id')[:20]

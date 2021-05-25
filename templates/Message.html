@@ -1,0 +1,28 @@
+<html dir="rtl">
+<head>
+</head>
+<h1>הודעה חדשה</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+	<td>נמען:	*</td>
+    <td><input type="text" name="parentName" required /></td>
+</tr><tr>
+<br />
+<br />
+<td>כותרת:	*</td>
+    <td><input type="text" name="subject" required /></td>
+</tr><tr>
+<br />
+<br />
+<td>תוכן ההודעה:</td>
+<br />
+    <td><textarea  name="message" rows="10"/></textarea></td> 
+</tr><tr>
+<br />
+    <div class="form-actions">
+      <button id="send" type="submit" onclick="showPage()">שלח</button>
+	  <button type="reset" value="Reset">נקה טופס</button>
+    </div>
+</form>
+</body>
+</html>

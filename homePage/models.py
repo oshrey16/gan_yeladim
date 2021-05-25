@@ -45,6 +45,7 @@ class Meeting(models.Model):
     def __str__(self):
         return self.Meeting_Link + "," + self.date 
 
+
 # ================ #
 # model News
 # ================ #
