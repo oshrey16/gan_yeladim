@@ -45,6 +45,7 @@ class Meeting(models.Model):
     def __str__(self):
         return self.Meeting_Link + "," + self.date 
 
+
 # ================ #
 # model News
 # ================ #
@@ -74,3 +75,13 @@ class mashov (models.Model):
 	feedback = models.IntegerField(default=-1)
 	def __str__(self):
 		return self.feedback
+
+class Message (models.Model):
+    firstName = models.CharField(max_length=50)
+    lastName = models.CharField(max_length=50)
+    emailAddress = models.CharField(max_length=100)
+    phoneNumber = models.CharField(max_length=15)
+    subject = models.CharField(max_length=500)
+    message = models.CharField(max_length=5000,blank=True)
+    def __str__(self):
+        return self.subject

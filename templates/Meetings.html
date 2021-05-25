@@ -1,17 +1,26 @@
-<h1> Zoom Meetings </h1>
+<html dir="rtl">
+<head>
+</head>
+<h1>פגישות זום</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
 <br>
 {% if meetings_list %}
     <ul>
     {% for meeting in meetings_list %}
-        <h3>Meeting Date:</h3>
-		<p> {{ meeting.date}}</p>
-		<h3>Meeting_Link:</h3>
-		<a href= {{meeting.Meeting_Link}}>Open Meeting Link</a>
+    <td>תאריך המפגש:</td>
+    <p> {{ meeting.date}}</p>
+    <td>לינק למפגש:	</td>
+		<a href= {{meeting.Meeting_Link}}>פתח את המפגש</a>
 
 		<p> _______________________________________________________________________________________</p>
 		<br>
     {% endfor %}
     </ul>
 {% else %}
-    <p>No meetings are available.</p>
+    <p>אין מפגשים זמינים.</p>
 {% endif %}
+</form>
+</body>
+</html>
+
