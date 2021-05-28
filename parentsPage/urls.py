@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
     url(r'^news', views.news, name='news'),
 	url('bugReport/', views.reportBugView, name='reportBug'),
+	url('kidInfo/', views.kidInfo, name='kidInfo'),
 
 ]

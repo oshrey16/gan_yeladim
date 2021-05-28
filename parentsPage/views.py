@@ -2,10 +2,10 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import subForm, ContactForm, MessageForm
+from .forms import subForm, ContactForm, MessageForm, KidForm
 from django.urls import reverse
 from parentsPage.models import submission
-from homePage.models import Question, Choice , News, reportBug,Message
+from homePage.models import Question, Choice , News, reportBug,Message, parent
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
 
 @login_required(login_url='/accounts/login/')
@@ -127,4 +127,27 @@ def MessageView(request):
             return redirect('success')
     return render(request, "Message.html", {'form': form})	
 
-
+def kidInfo(request):
+	data = parent.objects.all()
+	print (str(data))
+	kid = {
+	"kid_id": data
+	}
+	if request.method == 'GET':
+		form = KidForm()
+	else:
+		form = KidForm(request.POST, request.FILES)
+		if form.is_valid():
+			id = form.cleaned_data['id']
+			firstName = form.cleaned_data['firstName']
+			lastName = form.cleaned_data['lastName']
+			birth_date = form.cleaned_data['birth_date']
+			favoriteColor = form.cleaned_data['favoriteColor']
+			favoriteAnimal = form.cleaned_data['favoriteAnimal']
+			siblingsNumber = form.cleaned_data['siblingsNumber']
+			parentName = form.cleaned_data['parentName']
+			parentPhone = form.cleaned_data['parentPhone']
+			parentEmail = form.cleaned_data['parentEmail']
+			new_info=form.save()
+			return redirect('success')
+	return render(request, "kidInfoHtml.html", {'form': form, 'kid': kid})	
