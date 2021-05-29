@@ -33,6 +33,11 @@ class subject(models.Model):
 	submissions = models.FileField(upload_to='submissionsTasks')	
 	def __str__(self):
 		return self.nameSubject
+	
+	def save(self, **kwargs):
+		super(subject, self).save(**kwargs)
+		mmashov = mashov(subject=self)
+		mmashov.save()
 
 
 # ================ #
@@ -82,10 +87,9 @@ class reportBug (models.Model):
 
 class mashov (models.Model):
 	subject = models.ForeignKey(subject,on_delete=models.CASCADE)
-	kid = models.ForeignKey(kid,on_delete=models.CASCADE)
-	feedback = models.IntegerField(default=-1)
+	feedback = models.IntegerField(default=0)
 	def __str__(self):
-		return self.feedback
+		return self.subject
 
 class Message (models.Model):
     firstName = models.CharField(max_length=50)

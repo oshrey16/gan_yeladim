@@ -4,7 +4,7 @@
     <title>{{ subject.nameSubject }}</title>
 </head>
 <body>
-	<h1>{{ subject.nameSubject }}</h1>
+	<h1>{{ subject.nameSubject }} {{ subject.id }}</h1>
     <h3>Songs:</h3>
     <a href= {{subject.songs}}>Click Me!</a>
 	<h3>Games:</h3>
@@ -12,6 +12,12 @@
 	<h3>Submissions:</h3>
 	<a href={{ subject.submissions.url }} download = {{ subject.nameSubject}} >Download PDF</a>
 	<h3>Mashov</h3>
+	{% for m in mashov %}
+	{% if m.subject == subject %}
+	<a href= "/kidsPage/{{ m.id }}/vote">vote</a>
+	<br>
+	{% endif %}
+	{% endfor %}
 	{% endfor %}
 </body>
 

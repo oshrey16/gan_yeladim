@@ -1,7 +1,9 @@
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from homePage.models import mashov, subject, Meeting
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -35,5 +37,19 @@ def download_file(request,fl_path):
 	fl = open(fl_path, 'r')
 	response = HttpResponse(fl, content_type='application/pdf')
 	response['Content-Disposition'] = "attachment; filename=%s" % filename
-	return response	
+	return response
+
+def vote(request, mashov_id):
+    ssubject = get_object_or_404(subject, pk=mashov_id)
+    try:
+        selected_choice = ssubject.choice_set.get(pk=request.POST['mashov'])
+    except (KeyError, mashov.DoesNotExist):
+        return render(request, 'mashovvote.html', {
+            'mashov': ssubject,
+            'error_message': "You didn't select a choice.",
+        })
+    else:
+        selected_choice.votes += 1
+        selected_choice.save()
+        return HttpResponseRedirect(reverse('results', args=(ssubject.id,)))
 
