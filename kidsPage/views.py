@@ -39,17 +39,17 @@ def download_file(request,fl_path):
 	response['Content-Disposition'] = "attachment; filename=%s" % filename
 	return response
 
-def vote(request, mashov_id):
-    ssubject = get_object_or_404(subject, pk=mashov_id)
+def votee(request, mashov_id):
+    mmashov = get_object_or_404(mashov, pk=mashov_id)
     try:
-        selected_choice = ssubject.choice_set.get(pk=request.POST['mashov'])
+        selected_choice = request.GET["vote"]
     except (KeyError, mashov.DoesNotExist):
         return render(request, 'mashovvote.html', {
-            'mashov': ssubject,
+            'mashov': mmashov,
             'error_message': "You didn't select a choice.",
         })
     else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        return HttpResponseRedirect(reverse('results', args=(ssubject.id,)))
+        mmashov.feedback += int(selected_choice)
+        mmashov.save()
+        return render(request,"kidsPage.html")
 

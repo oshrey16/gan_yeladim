@@ -89,7 +89,7 @@ class mashov (models.Model):
 	subject = models.ForeignKey(subject,on_delete=models.CASCADE)
 	feedback = models.IntegerField(default=0)
 	def __str__(self):
-		return self.subject
+		return self.subject.nameSubject
 
 class Message (models.Model):
     firstName = models.CharField(max_length=50)
