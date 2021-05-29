@@ -19,7 +19,7 @@
     </body>
     </html>
 
-<!-- {% extends  "base.html" %}
+{% extends  "base.html" %}
 <html>
 <head>
     <title>ganenet</title>
@@ -36,6 +36,12 @@
     }
     </script>
 	
+    <a href="#" onclick="viewmashovs()" class="myButton">התפלגות ציוני משוב - עבודות</a>
+    <script>
+    function viewmashovs() {
+    location.replace("http://127.0.0.1:8000/ganenetPage/viewmashovs")
+    }
+    </script>
    
     <a href="#" onclick="logout()" class="myButton">התנתק</a>
 	<script>
@@ -48,4 +54,4 @@
 
 {% endblock pad-1 %}%>
 
-</html> -->
+</html>

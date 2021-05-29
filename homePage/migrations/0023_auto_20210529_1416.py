@@ -11,16 +11,4 @@ class Migration(migrations.Migration):
         ('homePage', '0022_auto_20210529_1234'),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='subject',
-            name='id',
-            field=models.AutoField(auto_created=True, default=0, primary_key=True, serialize=False, verbose_name='ID'),
-            preserve_default=False,
-        ),
-        migrations.AlterField(
-            model_name='subject',
-            name='nameSubject',
-            field=models.CharField(max_length=200),
-        ),
-    ]
+   

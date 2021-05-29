@@ -88,6 +88,11 @@ class reportBug (models.Model):
 class mashov (models.Model):
 	subject = models.ForeignKey(subject,on_delete=models.CASCADE)
 	feedback = models.IntegerField(default=0)
+	v1 = models.IntegerField(default=0)
+	v2 = models.IntegerField(default=0)
+	v3 = models.IntegerField(default=0)
+	v4 = models.IntegerField(default=0)
+	v5 = models.IntegerField(default=0)
 	def __str__(self):
 		return self.subject.nameSubject
 

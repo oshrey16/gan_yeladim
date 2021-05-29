@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from parentsPage.models import submission
-from homePage.models import subject
+from homePage.models import subject,mashov
 from django.http import HttpResponse
 from .models import Review
 
@@ -48,7 +48,11 @@ def add_review(request, subjectName):
 
 def successView(request):
     return render(request, "success.html")
-	
+
+def viewmashovs(request):
+    mashovlist = mashov.objects.all()
+    context= {'masohvs': mashovlist}
+    return render(request,"viewmashovs.html",context)
 
 # def addReview(request,):
 #     subs= submission.objects.all().filter(kidId=kidId)

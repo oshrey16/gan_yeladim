@@ -49,7 +49,16 @@ def votee(request, mashov_id):
             'error_message': "You didn't select a choice.",
         })
     else:
-        mmashov.feedback += int(selected_choice)
-        mmashov.save()
-        return render(request,"kidsPage.html")
-
+    	mmashov.feedback += int(selected_choice)
+    	if(selected_choice == "10"):
+		    mmashov.v1 += 1
+    	elif(selected_choice == "30"):
+    		mmashov.v2 +=1
+    	elif(selected_choice == "60"):
+    		mmashov.v3 +=1
+    	elif(selected_choice == "80"):
+    		mmashov.v4 +=1
+    	elif(selected_choice == "100"):
+    		mmashov.v5 +=1
+    	mmashov.save()
+    	return render(request,"kidsPage.html")

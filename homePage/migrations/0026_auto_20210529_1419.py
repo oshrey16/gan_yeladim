@@ -10,15 +10,3 @@ class Migration(migrations.Migration):
     dependencies = [
         ('homePage', '0025_auto_20210529_1418'),
     ]
-
-    operations = [
-        migrations.RemoveField(
-            model_name='subject',
-            name='id',
-        ),
-        migrations.AlterField(
-            model_name='subject',
-            name='nameSubject',
-            field=models.CharField(max_length=200, primary_key=True, serialize=False),
-        ),
-    ]
