@@ -25,4 +25,4 @@ class MessageForm(forms.ModelForm):
 class KidForm(forms.ModelForm):
     class Meta:
         model = kid
-        fields = ['id','firstName', 'lastName','birth_date','favoriteColor','favoriteAnimal','siblingsNumber','parentName','parentPhone','parentEmail']	
+        fields = ['favoriteColor','favoriteAnimal','siblingsNumber','parentName','parentPhone','parentEmail']	

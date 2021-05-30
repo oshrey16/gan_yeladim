@@ -128,26 +128,22 @@ def MessageView(request):
     return render(request, "Message.html", {'form': form})	
 
 def kidInfo(request):
+	kid=None
 	data = parent.objects.all()
-	print (str(data))
-	kid = {
-	"kid_id": data
-	}
+	for p in data:
+		if (((p.firstName+p.lastName).lower()) == str(request.user)):
+			kid=p.kid
 	if request.method == 'GET':
 		form = KidForm()
 	else:
 		form = KidForm(request.POST, request.FILES)
 		if form.is_valid():
-			id = form.cleaned_data['id']
-			firstName = form.cleaned_data['firstName']
-			lastName = form.cleaned_data['lastName']
-			birth_date = form.cleaned_data['birth_date']
-			favoriteColor = form.cleaned_data['favoriteColor']
-			favoriteAnimal = form.cleaned_data['favoriteAnimal']
-			siblingsNumber = form.cleaned_data['siblingsNumber']
-			parentName = form.cleaned_data['parentName']
-			parentPhone = form.cleaned_data['parentPhone']
-			parentEmail = form.cleaned_data['parentEmail']
-			new_info=form.save()
+			kid.favoriteColor = form.cleaned_data['favoriteColor']
+			kid.favoriteAnimal = form.cleaned_data['favoriteAnimal']
+			kid.siblingsNumber = form.cleaned_data['siblingsNumber']
+			kid.parentName = form.cleaned_data['parentName']
+			kid.parentPhone = form.cleaned_data['parentPhone']
+			kid.parentEmail = form.cleaned_data['parentEmail']
+			kid.save()
 			return redirect('success')
 	return render(request, "kidInfoHtml.html", {'form': form, 'kid': kid})	
