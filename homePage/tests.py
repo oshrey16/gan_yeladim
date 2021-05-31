@@ -103,4 +103,15 @@ class KidTestCase(TestCase):
         self.assertEqual(ganenet1.address,"NewAddress")
         self.assertTrue(ganenet1.birthDate,datetime.date(1900,12,12))
 
-    
+    ###### integration tests ######
+    def test_kids(self):
+        kids = kid.objects.filter(id="999999999")
+        self.assertEqual(kids.count(),0)
+
+        kid.objects.create(id=999999999,firstName="Test",lastName="asd",
+        birth_date=datetime.datetime(2020,1,1),favoriteColor="red",favoriteAnimal="Dog",
+        siblingsNumber=2,parentName="Asdasd",
+        parentPhone="0501111111",parentEmail="Test@gmail.com")
+
+        kids = kid.objects.filter(id="999999999")
+        self.assertEqual(kids.count(),1)
