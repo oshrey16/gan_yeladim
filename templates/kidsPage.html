@@ -1,33 +1,40 @@
-<html>
-<head>
+
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
+<html dir="rtl">
+ <head>
     <title>kid</title>
-</head>
-<body>
-    <h1>Kid Page</h1>
+ </head>
+ <body>
+	<h2>דף ילדים</h2>
 	<p></p>
-	<p></p>
-	<button type="button" onclick="Mettings()">Mettings</button>
+	
+	<a href="#" onclick="Mettings()" class="myButton">פגישות</a>
 	<script>
 	function Mettings() {
 	location.replace("http://127.0.0.1:8000/kidsPage/Meetings/")
 	}
-</script>
+    </script>
 
-	<p></p>
-	<button type="button" onclick="Subject()">Subjects</button>
+	<a href="#" onclick="Subject()" class="myButton">נושאי לימוד</a>
 	<script>
 	function Subject() {
 	location.replace("http://127.0.0.1:8000/kidsPage/subject/")
 	}
-</script>
+    </script>
 
-	<p></p>
-	<button type="button" onclick="myFunction()">logout</button>
+	<a href="#" onclick="myFunction()" class="myButton">התנתק</a>
 	<script>
 	function myFunction() {
 	location.replace("http://127.0.0.1:8000/accounts/login/")
 	}
-</script>
+    </script>
 
-</body>
-</html>
+ </body>
+ </html>
+ {% endblock pad-1 %}%>
+ 
+
+

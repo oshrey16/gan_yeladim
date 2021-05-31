@@ -17,7 +17,7 @@ def viewSubmission(request):
     Subjects= subject.objects.all()
     context= {'Subjects': Subjects}
     print(context)
-    return render (request, "viewSubmission.html", context)
+    return render (request,"viewSubmission.html", context)
 
 
 def Submissions(request,subjectName):

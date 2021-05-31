@@ -1,26 +1,44 @@
-<html dir="rtl">
-<head>
-</head>
-<h1>פגישות זום</h1>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-<br>
-{% if meetings_list %}
-    <ul>
-    {% for meeting in meetings_list %}
-    <td>תאריך המפגש:</td>
-    <p> {{ meeting.date}}</p>
-    <td>לינק למפגש:	</td>
-		<a href= {{meeting.Meeting_Link}}>פתח את המפגש</a>
 
-		<p> _______________________________________________________________________________________</p>
-		<br>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>אין מפגשים זמינים.</p>
-{% endif %}
-</form>
-</body>
-</html>
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
+<html dir="rtl">
+    <head>
+    </head>
+    <h1>פגישות זום</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <br>
+    {% if meetings_list %}
+        <ul>
+        {% for meeting in meetings_list %}
+        <td>תאריך המפגש:</td>
+        <p> {{ meeting.date}}</p>
+        <td>לינק למפגש:	</td>
+            <a href= {{meeting.Meeting_Link}}>פתח את המפגש</a>
+    
+            <p> _______________________________________________________________________________________</p>
+            <br>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>אין מפגשים זמינים.</p>
+    {% endif %}
+    </form>
+    </body>
+    </html>
+ {% endblock pad-1 %}%>
+ 
+
+
+
+
+
+
+
+
+
+
+
 
