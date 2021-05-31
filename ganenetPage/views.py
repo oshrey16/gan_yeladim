@@ -11,6 +11,8 @@ from .models import Review
 def index(request):
     return render(request,"ganenetPage.html")
 
+def about(request):
+    return render(request,"about.html")
 
 def viewSubmission(request):
     context= {}

@@ -1,5 +1,7 @@
 
 from django.conf.urls import url
+
+import homePage
 from . import views
 from django.conf import settings
 from django.views.static import serve
@@ -14,4 +16,5 @@ urlpatterns = [
     url(r'^reviewGanenet', views.reviewGanenet, name='reviewGanenet'),
     url(r'^success/', views.successView, name='success'),
     url(r'^viewmashovs/$', views.viewmashovs, name='viewmashovs'),
+    url(r'^about', homePage.views.about , name='about'),
 ]
