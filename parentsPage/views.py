@@ -15,6 +15,9 @@ def index(request):
 def submissionsParent(request):
     return render(request,"submissionsParent.html")
 
+def about(request):
+    return render(request,"about.html")
+
 def subView(request):
     if request.method == 'GET':
         form = subForm()

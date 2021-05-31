@@ -22,6 +22,9 @@ def contents(request, subject_id):
 	"mashov": data_mashov
 	}
 	return render(request,"subject.html", sub)
+
+def about(request):
+    return render(request,"about.html")
 	
 def download_file(request,fl_path):
 	data = subject.objects.all()

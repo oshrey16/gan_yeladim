@@ -19,7 +19,6 @@ def viewSubmission(request):
     print(context)
     return render (request,"viewSubmission.html", context)
 
-
 def Submissions(request,subjectName):
     submissions = submission.objects.all().filter(subjectName=subjectName)
     context= {'submissions': submissions}
@@ -30,8 +29,6 @@ def reviewGanenet(request):
     # context= {'reviews': reviews}
     return render (request, "review.html")
     
-
-
 def add_review(request, subjectName):
     #Submission= submission.objects.all().filter(subjectName=subjectName)
     if request.method == 'GET':

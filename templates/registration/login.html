@@ -1,12 +1,19 @@
-<h2>Log In</h2>
+{% extends  "base.html" %}
+{% block pad-1 %}
+
+</html>
+<h2> התחברות</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Log In</button>
-  <button type="button" onclick="myFunction()">forgot password?</button>
+  <button type="submit">התחבר</button>
+  <a href="#" onclick="myFunction()">שכחת סיסמא ?</a>
 	<script>
 	function myFunction() {
 	location.replace("http://127.0.0.1:8000/accounts/password_reset/")
 	}
 </script>
 </form>
+
+{% endblock pad-1 %}
+
