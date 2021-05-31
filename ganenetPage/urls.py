@@ -10,5 +10,5 @@ urlpatterns = [
 	url(r'^addReview', views.add_review, name='add a Review'),
     url(r'^reviewGanenet', views.reviewGanenet, name='reviewGanenet'),
     url(r'^success/', views.successView, name='success'),
-    
+    url(r'^viewmashovs/$', views.viewmashovs, name='viewmashovs'),
 ]

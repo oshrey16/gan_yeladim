@@ -42,6 +42,13 @@
     location.replace("http://127.0.0.1:8000/parentsPage/Message")
     }
     </script>
+	
+	<a href="#" onclick="kidInfo()" class="myButton">עריכת פרטי הילד</a>
+    <script>
+    function kidInfo() {
+    location.replace("http://127.0.0.1:8000/parentsPage/kidInfo")
+    }
+    </script>
 
     <a href="#" onclick="logout()" class="myButton">התנתק</a>
 	<script>
@@ -52,6 +59,6 @@
 
     
 
-{% endblock pad-1 %}%>
+{% endblock pad-1 %}
 
 </html>

@@ -1,0 +1,53 @@
+<html dir="rtl">
+<head>
+</head>
+<h1>שינוי פרטי הילד:</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3> מספר ת.ז: {{ kid.id }} </h3>
+</tr><tr>
+	<h3>שם פרטי: {{ kid.firstName }}</h3>
+</tr><tr>
+<h3>שם משפחה: {{ kid.lastName }}</h3>
+</tr><tr>
+</tr><tr>
+<h3>תאריך לידה: {{ kid.birth_date }}</h3>
+</tr><tr>
+<td>צבע אהוב:	*</td>
+    <td><input type="text"  name="favoriteColor" value= {{ kid.favoriteColor }} required /></td>
+</tr><tr>
+<br />
+<br />
+<td>חיה אהובה:	*</td>
+    <td><input type="text" name="favoriteAnimal" value= {{ kid.favoriteAnimal }} required /></td>
+</tr><tr>
+<br />
+<br />
+<td>מספר אחים:	*</td>
+    <td><input type="text" name="siblingsNumber" value= {{ kid.siblingsNumber }} required /></td>
+</tr><tr>
+<br />
+<br />
+<td>שם ההורה:	*</td>
+    <td><input type="text" name="parentName" value= {{ kid.parentName }} required /></td>
+</tr><tr>
+<br />
+<br />
+<td>טלפון ההורה:	*</td>
+    <td><input type="text" name="parentPhone" value= {{ kid.parentPhone }} required /></td>
+</tr><tr>
+<br />
+<br />
+<td>מייל ההורה:	*</td>
+    <td><input type="email" name="parentEmail" value= {{ kid.parentEmail }} required /></td>
+
+</tr><tr>
+<br />
+<br />
+    <div class="form-actions">
+      <button id="send" type="submit" onclick="showPage()">שלח</button>
+	  <button type="reset" value="Reset">נקה טופס</button>
+    </div>
+</form>
+</body>
+</html>

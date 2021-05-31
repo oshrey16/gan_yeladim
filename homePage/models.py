@@ -14,7 +14,18 @@ class kid(models.Model):
 	parentEmail = models.CharField(max_length=200)
 	def __str__(self):
 		return self.id + ":" + self.firstName + " " + self.lastName
-
+		
+class parent(models.Model):
+	id = models.CharField(max_length=200, primary_key=True)
+	firstName = models.CharField(max_length=200)
+	lastName = models.CharField(max_length=200)
+	kid = models.ForeignKey(kid, on_delete=models.CASCADE)
+	birth_date = models.DateTimeField('birthday')
+	parentPhone = models.CharField(max_length=200)
+	parentEmail = models.CharField(max_length=200)
+	def __str__(self):
+		return self.firstName + " " + self.lastName + " ,Parent of: " +self.kid.id
+		
 class subject(models.Model):
 	nameSubject = models.CharField(max_length=200, primary_key=True)
 	songs = models.CharField(max_length=2000)
@@ -22,6 +33,11 @@ class subject(models.Model):
 	submissions = models.FileField(upload_to='submissionsTasks')	
 	def __str__(self):
 		return self.nameSubject
+	
+	def save(self, **kwargs):
+		super(subject, self).save(**kwargs)
+		mmashov = mashov(subject=self)
+		mmashov.save()
 
 
 # ================ #
@@ -71,10 +87,14 @@ class reportBug (models.Model):
 
 class mashov (models.Model):
 	subject = models.ForeignKey(subject,on_delete=models.CASCADE)
-	kid = models.ForeignKey(kid,on_delete=models.CASCADE)
-	feedback = models.IntegerField(default=-1)
+	feedback = models.IntegerField(default=0)
+	v1 = models.IntegerField(default=0)
+	v2 = models.IntegerField(default=0)
+	v3 = models.IntegerField(default=0)
+	v4 = models.IntegerField(default=0)
+	v5 = models.IntegerField(default=0)
 	def __str__(self):
-		return self.feedback
+		return self.subject.nameSubject
 
 class Message (models.Model):
     firstName = models.CharField(max_length=50)

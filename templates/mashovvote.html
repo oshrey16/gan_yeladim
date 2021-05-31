@@ -1,0 +1,37 @@
+{% extends  "base.html" %}
+{% block head %}
+<style>
+    label {font-size: 35px;}
+    input {margin: .8rem;}
+    #btn {font-size: 36px;}
+</style>
+{% endblock head %}
+{% block pad-1 %}
+<h1> Mashov for subject </h1>
+<br><br>
+<form action="{% url 'votee' mashov.id %}" method="get">
+{% csrf_token %}
+<div>
+  <input type="radio" id="superbad" name="vote" value="10" checked>
+  <label for="superbad">&#128557</label>
+</div>
+<div>
+  <input type="radio" id="bad" name="vote" value="30">
+  <label for="bad">&#128542</label>
+</div>
+<div>
+  <input type="radio" id="Likely" name="vote" value="60">
+  <label  for="Likely">&#128533</label>
+</div>
+<div>
+  <input type="radio" id="good" name="vote" value="80">
+  <label for="good">&#128578</label>
+</div>
+<div>
+  <input type="radio" id="verygood" name="vote" value="100">
+  <label for="verygood">&#128516</label>
+</div>
+<br>
+<input id='btn' type="submit" value="Send Vote"/>
+</form>
+{% endblock pad-1 %}
