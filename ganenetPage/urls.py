@@ -5,6 +5,8 @@ import homePage
 from . import views
 from django.conf import settings
 from django.views.static import serve
+from django.conf.urls import include
+
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -15,6 +17,7 @@ urlpatterns = [
 	url(r'^addReview', views.add_review, name='add a Review'),
     url(r'^reviewGanenet', views.reviewGanenet, name='reviewGanenet'),
     url(r'^success/', views.successView, name='success'),
-    url(r'^viewmashovs/$', views.viewmashovs, name='viewmashovs'),
+    url(r'^viewmashovs/$', views.viewmashovs , name='viewmashovs'),
+    url(r'^viewmashovss/$', views.viewmashovss , name='viewmashovss'),
     url(r'^about', homePage.views.about , name='about'),
 ]

@@ -6,6 +6,8 @@ from parentsPage.models import submission
 from homePage.models import subject,mashov
 from django.http import HttpResponse
 from .models import Review
+from django.db.models import Sum
+from django.http import JsonResponse
 
 
 def index(request):
@@ -49,9 +51,21 @@ def successView(request):
     return render(request, "success.html")
 
 def viewmashovs(request):
-    mashovlist = mashov.objects.all()
-    context= {'masohvs': mashovlist}
-    return render(request,"viewmashovs.html",context)
+    return render(request,"viewmashovs.html")
+
+def viewmashovss(request):
+    labels = []
+    data = []
+
+    queryset = mashov.objects.values('subject__nameSubject').annotate(mashov_feedback=Sum('feedback')).order_by('-mashov_feedback')
+    for entry in queryset:
+        labels.append(entry['subject__nameSubject'])
+        data.append(entry['mashov_feedback'])
+    
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+         })
 
 # def addReview(request,):
 #     subs= submission.objects.all().filter(kidId=kidId)
