@@ -8,6 +8,8 @@ from django.http import HttpResponse
 from .models import Review
 from django.db.models import Sum
 from django.http import JsonResponse
+from django.contrib.auth.models import Group, User
+from parentsPage.models import submission
 
 
 def index(request):
@@ -66,6 +68,11 @@ def viewmashovss(request):
         'labels': labels,
         'data': data,
          })
+
+def trackinglog(request):
+    users = User.objects.all().filter(groups__name='Kids')
+    context= {'users': users}
+    return render(request,"trackinglog.html",context)
 
 # def addReview(request,):
 #     subs= submission.objects.all().filter(kidId=kidId)

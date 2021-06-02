@@ -14,10 +14,17 @@
     }
     </script>
 
-    <a href="#" onclick="viewSubmissions()" class="myButton">צפייה התפלגות משובי עבודות</a>
+    <a href="#" onclick="viewSubmissions()" class="myButton">התפלגות משובי עבודות</a>
     <script>
     function viewSubmissions() {
     location.replace("http://127.0.0.1:8000/ganenetPage/viewmashovs/")
+    }
+    </script>
+
+    <a href="#" onclick="viewSubmissions()" class="myButton">יומן מעקב ילדים</a>
+    <script>
+    function viewSubmissions() {
+    location.replace("http://127.0.0.1:8000/ganenetPage/trackinglog/")
     }
     </script>
 
@@ -28,4 +35,4 @@
 	}
     </script>
 
-{% endblock pad-1 %}%>
+{% endblock pad-1 %}

@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^viewmashovs/$', views.viewmashovs , name='viewmashovs'),
     url(r'^viewmashovss/$', views.viewmashovss , name='viewmashovss'),
     url(r'^about', homePage.views.about , name='about'),
+    url(r'^trackinglog/$', views.trackinglog , name='trackinglog'),
 ]
