@@ -1,4 +1,4 @@
-
+	
 {% extends  "base.html" %}
 {% load static %}
 
@@ -8,9 +8,18 @@
     <title>kid</title>
  </head>
  <body>
+	{% for message in messages %}
+		<div class="container-fluid p-0">
+  		<div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+    	{{ message }}
+  		</div>
+		</div>
+	{% endfor %}
+<br>
 	<h2>דף ילדים</h2>
 	<p></p>
 	
+
 	<a href="#" onclick="Mettings()" class="myButton">פגישות</a>
 	<script>
 	function Mettings() {

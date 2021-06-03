@@ -3,7 +3,14 @@
 <head>
     <title>parent</title>
 </head>
-
+{% for message in messages %}
+		<div class="container-fluid p-0">
+  		<div class="alert {{ message.tags }} alert-dismissible" role="alert" >
+    	{{ message }}
+  		</div>
+		</div>
+	{% endfor %}
+<br>
 {% block pad-1 %}
     <h2>דף הורים</h2>
 	<p></p>

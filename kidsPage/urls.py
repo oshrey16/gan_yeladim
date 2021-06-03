@@ -10,4 +10,5 @@ urlpatterns = [
 	url(r'^(?P<fl_path>[a-zA-Z]+)/', views.download_file),
 	url(r'^about', views.about, name='about'),
 	url(r'^(?P<mashov_id>[0-9]+)/vote/$', views.votee, name='votee'),
+	url(r'^viewReview', views.reviews, name='reviews'),
 ]

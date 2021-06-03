@@ -1,0 +1,30 @@
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
+<html dir="rtl">
+    <head>
+    </head>
+    <h1>משוב גננת לילד</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+    <br>
+    {% if reviews_list %}
+        <ul>
+        {% for review in reviews_list %}
+        <td>:נושא העבודה</td>
+        <p> {{ review.subject}}</p>
+        <td>תוכן המשוב:</td>
+        <p> {{review.review}}</p>
+    
+            <p> _______________________________________________________________________________________</p>
+            <br>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>אין משובים זמינים.</p>
+    {% endif %}
+    </form>
+    </body>
+    </html>
+ {% endblock pad-1 %}%>

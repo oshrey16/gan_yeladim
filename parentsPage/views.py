@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from ganenetPage.models import Review
 from django.shortcuts import render,redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -150,3 +151,17 @@ def kidInfo(request):
 			kid.save()
 			return redirect('success')
 	return render(request, "kidInfoHtml.html", {'form': form, 'kid': kid})	
+
+def reviews(request):
+
+
+
+
+   """ kid=None
+	data = parent.objects.all()
+	for p in data:
+		if (((p.firstName+p.lastName).lower()) == str(request.user)):
+			kid=p.kid
+	reviews_list = Review.objects.order_by('-id')[:20]
+	context = {'reviews_list': reviews_list}
+	return render(request, "ReviewsParents.html", context)"""

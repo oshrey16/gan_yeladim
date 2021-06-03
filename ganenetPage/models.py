@@ -15,7 +15,8 @@ class myInfo(models.Model):
         return "My Information"
 
 class Review(models.Model):
-    review= models.TextField(max_length=1000)   
+    review= models.TextField(max_length=1000)
+    subject=models.ForeignKey(subject,on_delete=models.CASCADE)
     submission_id=models.CharField(default=0,max_length=50)
 
     def __str__(self):
