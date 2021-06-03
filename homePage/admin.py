@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import kid, parent, subject, Question, Choice,Meeting,News,mashov
+from .models import kid, parent, subject, Question, Choice,Meeting,News,mashov,trackinglog
 from parentsPage.models import submission
 
 admin.site.register(kid)
@@ -12,3 +12,4 @@ admin.site.register(submission)
 admin.site.register(Meeting)
 admin.site.register(News)
 admin.site.register(mashov)
+admin.site.register(trackinglog)

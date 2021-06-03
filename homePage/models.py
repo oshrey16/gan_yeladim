@@ -122,3 +122,10 @@ class Message (models.Model):
     message = models.CharField(max_length=5000,blank=True)
     def __str__(self):
         return self.subject
+
+class trackinglog (models.Model):
+	kid = models.ForeignKey(kid,on_delete=models.CASCADE)
+	report_date = models.DateTimeField(auto_now_add=True,auto_created=True)
+	message = models.CharField(max_length=5000,blank=True)
+	def __str__(self):
+		return 'report: ' + self.kid.firstName + ' ' + str(self.report_date.date())
