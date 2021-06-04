@@ -15,6 +15,6 @@ urlpatterns = [
 	url('bugReport/', views.reportBugView, name='reportBug'),
     url(r'^about', views.about, name='about'),
 	url('kidInfo/', views.kidInfo, name='kidInfo'),
-    url(r'^viewReview', views.reviews, name='reviews'),
+    url(r'^reviews/', views.reviews, name='reviews'),
 
 ]

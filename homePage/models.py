@@ -20,7 +20,7 @@ class kid(models.Model):
 	id = models.CharField(max_length=200, primary_key=True)
 	firstName = models.CharField(max_length=200)
 	lastName = models.CharField(max_length=200)
-	birth_date = models.DateField('birthday',db_index=True)
+	birth_date = models.DateTimeField('birthday')
 	favoriteColor = models.CharField(max_length=200)
 	favoriteAnimal = models.CharField(max_length=200)
 	siblingsNumber = models.IntegerField(default=0)
@@ -29,8 +29,6 @@ class kid(models.Model):
 	parentEmail = models.CharField(max_length=200)
 	def __str__(self):
 		return self.id + ":" + self.firstName + " " + self.lastName
-	def get_birthday(self):
-		return self.birth_date 
 		
 class parent(models.Model):
 	id = models.CharField(max_length=200, primary_key=True)
