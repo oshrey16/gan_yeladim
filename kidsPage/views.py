@@ -1,4 +1,3 @@
-from contextlib import nullcontext
 from django.db.models.expressions import Value
 from django.db.models.fields import CharField
 from django.db.models.functions.datetime import ExtractDay, ExtractHour, TruncSecond
