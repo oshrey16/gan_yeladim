@@ -21,3 +21,5 @@ def about(request):
 
 def home(request):
     return render(request,"base.html")
+def zorkesher(request):
+    return render(request,"zorkesher.html")

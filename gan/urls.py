@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'about', views.about),
     url(r'home', views.home),
     url(r'^logout/$', logout, {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
+    url(r'zorkesher', views.zorkesher),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
