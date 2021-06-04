@@ -26,6 +26,24 @@ pipeline {
                 }
             }
         }
+        stage('Build'){
+            agent{
+                docker{
+                    image 'python:3.6'
+                }
+            }
+            steps{
+                withEnv(["HOME=${env.WORKSPACE}"]){
+                    source myenv/bin/activate
+                    pip3 install -r requirements.txt
+                    cd reports
+                    touch *.xml
+                    touch *.report
+                    cd ..
+                    python3 manage.py jenkins — enable-coverage
+                }
+            }
+        }
         stage('Tests'){
             agent{
                 docker{
