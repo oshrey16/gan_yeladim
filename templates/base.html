@@ -22,33 +22,49 @@
 <div class="main">
   <!--==============================header=================================-->
   <header>
-    <h1><a href="parentsPage.html"></h1>
     <nav>
       <ul class="menu">
         <li class="current">
-          <a href="" onclick="homepage()" class="clr-1">דף הבית</a>
+          <a href.replace="" onclick="homePage()" class="clr-1">דף הבית</a>
           <script>
-            function homepage() {
-            location.replace("http://127.0.0.1:8000/parentsPage/")
+            function homePage() {
+            location.replace("http://127.0.0.1:8000/home")
             }
           </script>
         </li>
         <li>
-          <a href="" onclick="login()" class="clr-2">כניסה</a>
+          {% if user.is_authenticated %}
+           <a href.replace="" onclick="account()" class="clr-2">חשבון</a>
+           <script>
+            function account() {
+            location.replace("http://127.0.0.1:8000/homePage/")
+            }
+          </script>
+          {% else %}
+          <a href.replace="" onclick="login()" class="clr-2">כניסה</a>
           <script>
             function login() {
             location.replace("http://127.0.0.1:8000/accounts/login/")
             }
           </script>
+          {% endif %}
+          
         </li>
         <li>
-          <a href="about.html" class="clr-3">על המערכת</a>
+          <a href.replace="" onclick="about()" class="clr-3">על המערכת</a>
+           <script>
+            function about() {
+            location.replace("http://127.0.0.1:8000/about")
+            }
+          </script>
         </li>
-        <li>
-          <a href="gallery.html" class="clr-4">משימות</a>
-        </li>
-        <li>
-          <a href="contacts.html" class="clr-5">לא יודע</a>
+<li>
+          <a href.replace="" onclick="about()" class="clr-4">צור קשר</a>
+           <script>
+            function about() {
+            location.replace("http://127.0.0.1:8000/about")
+            }
+          </script>
         </li>
       </ul>
     </nav>

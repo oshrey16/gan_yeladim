@@ -1,6 +1,6 @@
-<html dir="rtl">
-<head>
-</head>
+{% extends  "base.html" %}
+{% load static %}
+{% block pad-1 %}
 <h1>שינוי פרטי הילד:</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -49,5 +49,4 @@
 	  <button type="reset" value="Reset">נקה טופס</button>
     </div>
 </form>
-</body>
-</html>
+{% endblock pad-1 %}

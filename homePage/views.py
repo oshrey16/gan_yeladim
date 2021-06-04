@@ -18,4 +18,6 @@ def logout_view(request):
 
 def about(request):
     return render(request,"about.html")
-	
+
+def home(request):
+    return render(request,"base.html")

@@ -1,3 +1,7 @@
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
 <h1>{{ question.question_text }}</h1>
 
 <form action="{% url 'vote' question.id %}" method="post">
@@ -9,3 +13,4 @@
 <br>
 <input type="submit" value="Vote" />
 </form>
+{% endblock pad-1 %}

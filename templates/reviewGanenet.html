@@ -1,4 +1,7 @@
-<html>
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
 <head>
     <title>show Review</title>
 </head>
@@ -11,5 +14,4 @@
     location.replace("http://127.0.0.1:8000/review")
     }
 </script>
-</body>
-</html> 
+{% endblock pad-1 %}

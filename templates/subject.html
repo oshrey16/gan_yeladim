@@ -1,4 +1,7 @@
-<html>
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
 <head>
 	{% for subject in subject_id %}
     <title>{{ subject.nameSubject }}</title>
@@ -20,5 +23,4 @@
 	{% endfor %}
 	{% endfor %}
 </body>
-
-</html>
+{% endblock pad-1 %}

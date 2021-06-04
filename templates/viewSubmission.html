@@ -1,3 +1,7 @@
+{% extends  "base.html" %}
+{% load static %}
+
+{% block pad-1 %}
 <h1> Subjects </h1>
 <br>
 {% if Subjects %}
@@ -14,5 +18,5 @@
     <p>No submissions are available.</p>
 {% endif %}
 
-</html>
+{% endblock pad-1 %}
 

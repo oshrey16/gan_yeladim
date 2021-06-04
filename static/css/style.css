@@ -5,7 +5,8 @@
 body,html {
     width: 100%;
     padding: 0;
-    margin: 0
+    margin: 0;
+    fo
 }
 body {
     font: 14px/22px Georgia,"Times New Roman",Times,serif;
@@ -136,6 +137,7 @@ ul {
 }
 .pad-1 {
 	direction:rtl;
+    font-size: 20px;
     padding: 10px 0 44px 30px
 }
 .pad-2 {
@@ -146,6 +148,10 @@ ul {
 }
 .pad-3 {
     padding: 12px 0 27px 0
+}
+.button-pad .myButton{
+    padding: 22px 0 22px 0;
+    background-color: blue;
 }
 .p1 {
     padding-bottom: 6px
@@ -182,13 +188,13 @@ nav {
     padding: 0
 }
 ul.menu {
-    margin: 70px 0 0 83px;
+    margin: 70px 0 0 110px;
     display: inline-block
 }
 ul.menu li {
     float: right;
     line-height: 50px;
-    margin: 0 35px 0 20px
+    margin: 0 60px 0 20px;
 }
 ul.menu li a {
     font-size: 40px;
@@ -222,6 +228,7 @@ footer {
     padding: 33px 0 30px 0
 }
 .myButton {
+    margin: 20px 10px 10px 20px;
 	box-shadow: 20px 9px 27px -2px #276873;
 	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
 	background-color:#599bb3;
@@ -245,7 +252,17 @@ footer {
 	top:1px;
 }
 
-/*asdasdasdasdasd*/
+.pad-1 b{
+    font-size: 20px;
+}
+
+.about{
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    background-color: wheat;
+}
 table.blueTable {
 	margin-right: 120px;
 	border: 1px solid #1C6EA4;

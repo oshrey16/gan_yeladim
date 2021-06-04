@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_jenkins',
     #remove livereload in finish
-    #'livereload',
+    'livereload',
 ]
 
 MIDDLEWARE = [
@@ -151,3 +151,5 @@ STATICFILES_FINDERS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join('media')
+
+LOGOUT_REDIRECT_URL = 'home/'
