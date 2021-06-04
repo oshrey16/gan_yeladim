@@ -16,7 +16,7 @@ class myInfo(models.Model):
 
 class Review(models.Model):
     review= models.TextField(max_length=1000)
-    subjectName=models.ForeignKey(subject,on_delete=models.CASCADE)
+    subjectName=models.ForeignKey(subject,on_delete=models.DO_NOTHING)
     submission_id=models.CharField(default=0,max_length=50)
     kidId=models.CharField(max_length=200, primary_key=True)
 

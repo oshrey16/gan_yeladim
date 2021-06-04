@@ -7,7 +7,7 @@ from django.forms.widgets import CheckboxSelectMultiple
 from ganenetPage.models import Review
 from django.contrib.auth.models import User
 from django.http import HttpResponse, Http404, request
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from datetime import datetime, date
 from django.contrib import messages
