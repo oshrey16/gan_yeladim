@@ -34,11 +34,7 @@ pipeline {
             }
             steps{
                 withEnv(["HOME=${env.WORKSPACE}"]){
-                    cd reports
-                    touch *.xml
-                    touch *.report
-                    cd ..
-                    python3 manage.py jenkins — enable-coverage
+                    sh 'python manage.py jenkins — enable-coverage'
                 }
             }
         }
